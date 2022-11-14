@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/CMPS');
+mongoose.connect('mongodb+srv://Harsh:Harsh%4069@cluster0.iztxd6x.mongodb.net/CMPS?retryWrites=true&w=majority');
 
 const db = mongoose.connection;
 
