@@ -1,0 +1,25 @@
+
+
+<%for( i of complaints){%>
+    
+        <p><%=i.desc%></p>
+        <p><%=user.type%></p>
+        
+        <form action="/admin/update/<%= i._id %>" method="POST">
+            
+                
+                <%if(i.status=="Unresolved"){%>
+                    <select name="status">
+                    <option value="Unresolved">Unresolved</option>
+                    <option value="Resolved">Resolved</option>
+                </select>
+                    <% } else{ %>
+                        <button type="button" class="btn btn-success"><%=i.status%></button> 
+                    <%} %>
+                
+            
+            <input type="submit"  value="Update">
+        </form>
+        
+  
+    <%} %>
