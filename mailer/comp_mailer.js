@@ -9,8 +9,8 @@ exports.newComp = (complaint) => {
        from: 'b21100@students.iitmandi.ac.in',
        to: 'harsh100pahwa@gmail.com',
        subject: "New Complaint Published!",
-       //mail template decide krna hai
-        html: complaint
+       //TODO
+        html:"<p>Your message "+complaint+".Message continueous </p>"
     }, 
     //info carries the info of the mail that has been sent
     (err, info) => {
