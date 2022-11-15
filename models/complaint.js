@@ -52,6 +52,13 @@ const complaintSchema = new mongoose.Schema({
         required: true
         
     },
+    resp:{
+        type: String,
+        required: true,
+        default: "a"
+     
+        
+    },
     //linking user to post
     user:{
         //type is object id which is unique

@@ -6,15 +6,24 @@ const user=require('../models/user');
     // res.cookie('key'.'value')
 
 module.exports.profile = function (req, res) {
-    
-    return res.render('profile', {
-        title: 'Profile'
-    });
+    user.find({}).populate('complaint').exec(function(err,user){
+        
+        return res.render('profile',{
+            title:"Profile",
+            users: user
+    })}
+    )
 }
 module.exports.form = function (req, res) {
     
     return res.render('form', {
         title: 'Form'
+    });
+}
+module.exports.contact = function (req, res) {
+    
+    return res.render('contacts', {
+        title: 'Contacts'
     });
 }
 

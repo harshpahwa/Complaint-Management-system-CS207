@@ -1,8 +1,9 @@
 const complaint = require("../models/complaint");
 const user = require("../models/user");
-const compmail = require('../mailer/comment_mailer')
+const compmail = require('../mailer/comp_mailer')
 //we are using req.body.post bcoz we have taken post as an hidden input while making the complaint
 module.exports.create = function (req, res) {
+    console.log(req.body.resp)
     user.findById(req.user._id, function(err,user) {
         if(user){
             complaint.create({
@@ -16,13 +17,15 @@ module.exports.create = function (req, res) {
                 block: req.body.block,
                 subject: req.body.subject,
                 status: req.body.status,
+                resp: req.body.resp,
                 user: req.user._id
             },function (err,complaint) {
-                if(err){console.log("error in creating the post",err);return;}
+
+                if(err){console.log("error in creating the complaint",err);return;}
                //updating the post object using .push and .save
                user.complaint.push(complaint);
                user.save();
-               compmail.newComment();
+               compmail.newComp(complaint);
              
                 return res.redirect('/users/myComp');
             });

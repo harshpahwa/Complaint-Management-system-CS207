@@ -11,6 +11,7 @@ router.get('/logout', userController.destroySession);
 router.get('/homepage',passport.checkAuthentication, userController.homepage);
 router.get('/mycomp',passport.checkAuthentication, userController.myComp);
 router.get('/form',passport.checkAuthentication, userController.form);
+router.get('/contacts',passport.checkAuthentication, userController.contact);
 
 // use passport as a middleware to authenticate
 router.post('/create-session', passport.authenticate(

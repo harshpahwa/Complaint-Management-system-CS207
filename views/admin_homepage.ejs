@@ -26,59 +26,94 @@
             <div class="card">
                 <div class="card-body mx-4">
                     <div class="container">
+                        <%var k=1%>
                         <p class="my-5" style="font-size: 30px;">Complaints</p>
                         <%for( i of complaints){%>
                             <div class="row">
                                 <ul class="list-unstyled">
-                                    <li class="text-muted mt-1"><span class="text-black">Complaint</span> #1</li>
-                                    <li class="text-black mt-1">October 31 2022 12:45 IST</li>
+                                    <li class="text-muted mt-1"><span class="text-black">Complaint</span>#<%=k%><% k++ %> </li>
+                                    <li class="text-black mt-1">Date: <%= i.createdAt.toString().substring(3,15) %> <br> Time: <%= i.createdAt.toString().substring(15,21) %></li>
                                 </ul>
                                 <hr>
-                                <div class="col-xl-10">
+                                <div class="col-xl-9">
                                     <p>Complaint Category</p>
                                 </div>
-                                <div class="col-xl-2">
-                                    <p class="float-end">
+                                <div class="col-xl-3">
+                                    <p >
                                         <%=i.category%>
                                     </p>
                                 </div>
                                 <hr>
                             </div>
                             <div class="row">
-                                <div class="col-xl-10">
+                                <div class="col-xl-9">
                                     <p>Complaint Subject</p>
                                 </div>
-                                <div class="col-xl-2">
-                                    <p class="float-end">
+                                <div class="col-xl-3">
+                                    <p >
                                         <%=i.subject%>
                                     </p>
                                 </div>
                                 <hr>
                             </div>
                             <div class="row">
-                                <div class="col-xl-10">
+                                <div class="col-xl-9">
                                     <p>Complaint Description</p>
                                 </div>
-                                <div class="col-xl-2">
-                                    <p class="float-end">
+                                <div class="col-xl-3">
+                                    <p >
                                         <%=i.desc%>
                                     </p>
                                 </div>
                                 <hr>
                             </div>
                             <div class="row">
-                                <div class="col-xl-10">
+                                <div class="col-xl-9">
+                                    <p>Name</p>
+                                </div>
+                                <div class="col-xl-3">
+                                    <p >
+                                        <%=i.name%>
+                                    </p>
+                                </div>
+                                <div class="col-xl-9">
+                                    <p>Roll no</p>
+                                </div>
+                                <div class="col-xl-3">
+                                    <p >
+                                        <%=i.roll%>
+                                    </p>
+                                </div>
+                                <div class="col-xl-9">
+                                    <p>Hostel</p>
+                                </div>
+                                <div class="col-xl-3">
+                                    <p >
+                                        <%=i.campus%> -> <%=i.block%> -> <%=i.hostel%>
+                                    </p>
+                                </div>
+                                
+                                <hr>
+                            </div>
+                            
+                            <form action="/admin/update/<%= i._id %>" method="POST">
+                                
+                            <div class="row">
+                                <div class="col-xl-9">
                                     <p>Admin's Response</p>
                                 </div>
-                                <div class="col-xl-2">
-                                    <p class="float-end">
-                                    <form action="/admin/update/<%= i._id %>" method="POST">
-                                        <input type="text" id="fname" name="res"><br><br>
-
+                                <div class="col-xl-3">
+                                    <p >
+                                        <%if(i.status=="Unresolved"){%>
+                                        <input type="text" id="fname" name="resp"><br><br>
+                                        <% } else{ %>
+                                            <%= i.resp %>
                                         </p>
+                                        <%} %>
                                 </div>
                                 <hr>
                             </div>
+                           
 
                             <%if(i.status=="Unresolved"){%>
                                 <select name="status">

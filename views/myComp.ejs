@@ -46,11 +46,33 @@
                             <p>Complaint Subject</p>
                         </div>
                         <div class="col-xl-2">
+                            <p class="float-end"><%= j.subject %>
+                            </p>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-10">
+                            <p>Complaint Description</p>
+                        </div>
+                        <div class="col-xl-2">
                             <p class="float-end"><%= j.desc %>
                             </p>
                         </div>
                         <hr>
                     </div>
+                    <%if(j.status=="Resolved"){%>
+                    <div class="row">
+                        <div class="col-xl-10">
+                            <p>Admin Response</p>
+                        </div>
+                        <div class="col-xl-2">
+                            <p class="float-end"><%= j.resp %>
+                            </p>
+                        </div>
+                        <hr>
+                    </div>
+                    <%} %>
 
                     <%if(j.status=="Unresolved"){%>
                     <button type="button" class="btn btn-danger"><%=j.status%></button>
