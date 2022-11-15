@@ -79,7 +79,9 @@
                                                 <%for( i of users){%>
                                                     <%if(i.name==user.name){%>
                                                         <p class="text-muted">
+                                                            <%if(user.complaint.length!=0){%>
                                                             <%= i.complaint[user.complaint.length-1].subject%>
+                                                            <%} %>
                                                         </p>
                                                         <%} %>
                                                             <%} %>
