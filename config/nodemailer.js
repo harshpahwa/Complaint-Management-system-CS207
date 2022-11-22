@@ -10,9 +10,9 @@ let renderTemplate = (relativePath) => {
     let mailHTML;
     ejs.renderFile(
         path.join(__dirname, '../views/mailers', relativePath),
-        
+
         function (err, template) {
-            if (err) { console.log('error in rendering template',err); return }
+            if (err) { console.log('error in rendering template', err); return }
 
             mailHTML = template;
         }

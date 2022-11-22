@@ -2,76 +2,64 @@ const { default: mongoose } = require('mongoose');
 const moongose = require('mongoose');
 
 const complaintSchema = new mongoose.Schema({
-    name:{
+    name: {
         type: String,
         required: true
-        
     },
-    roll:{
+    roll: {
         type: String,
         required: true
-        
     },
-    room:{
+    room: {
         type: String,
         required: true
-        
     },
-    block:{
+    block: {
         type: String,
         required: true
-        
     },
-    hostel:{
+    hostel: {
         type: String,
         required: true
-        
     },
-    campus:{
+    campus: {
         type: String,
         required: true
-        
     },
-    desc:{
+    desc: {
         type: String,
         required: true
-        
     },
-    category:{
+    category: {
         type: String,
         required: true
-        
     },
-    subject:{
+    subject: {
         type: String,
         required: true
-        
     },
-    status:{
+    status: {
         type: String,
         required: true
-        
     },
-    resp:{
+    resp: {
         type: String,
         required: true,
         default: "a"
-     
-        
     },
     //linking user to post
-    user:{
+    user: {
         //type is object id which is unique
         type: moongose.Schema.Types.ObjectId,
         //ref= schema name
         ref: 'user'
     }
 
-},{
+}, {
     //stores Created at and Updated at time and date 
     timestamps: true
 });
 
-const complaint = moongose.model('complaint',complaintSchema)
+const complaint = moongose.model('complaint', complaintSchema)
 
-module.exports= complaint;
+module.exports = complaint;

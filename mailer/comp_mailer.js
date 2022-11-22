@@ -10,15 +10,15 @@ exports.newComp = (complaint) => {
         to: 'harsh100pahwa@gmail.com',
         subject: "New Complaint Published!",
         //TODO
-        html: "<p>Complaint details <br>" + "<ul>"  
-        +"<li> Name: " + complaint.name + "</li>"
-        +"<li> Roll No: " + complaint.roll + "</li>"
-        +"<li> Room No: " + complaint.room + "</li>"
-        +"<li> Hostel:" + complaint.campus + " -> " + complaint.block  + " -> " + complaint.hostel + "</li>"
-        +"<li> Category: " + complaint.category + "</li>"
-        +"<li> Subject: " + complaint.subject + "</li>"
-        +"<li> Description: " + complaint.desc + "</li>"+
-        "</ul> Thank You</p>"
+        html: "<p>Complaint details <br>" + "<ul>"
+            + "<li> Name: " + complaint.name + "</li>"
+            + "<li> Roll No: " + complaint.roll + "</li>"
+            + "<li> Room No: " + complaint.room + "</li>"
+            + "<li> Hostel:" + complaint.campus + " -> " + complaint.block + " -> " + complaint.hostel + "</li>"
+            + "<li> Category: " + complaint.category + "</li>"
+            + "<li> Subject: " + complaint.subject + "</li>"
+            + "<li> Description: " + complaint.desc + "</li>" +
+            "</ul> Thank You</p>"
     },
         //info carries the info of the mail that has been sent
         (err, info) => {
