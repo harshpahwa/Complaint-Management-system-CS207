@@ -8,7 +8,7 @@ const development ={
         secure: false, // true for 465, false for other ports
         auth: {
             user: 'b21100@students.iitmandi.ac.in', // generated ethereal user
-            pass: 'harshandrishul' // generated ethereal password
+            pass: '' // generated ethereal password
         }
     },
    
