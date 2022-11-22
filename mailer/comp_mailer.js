@@ -3,11 +3,15 @@ const nodeMailer = require('../config/nodemailer');
 
 // this is another way of exporting a method
 exports.newComp = (complaint) => {
-    console.log('inside mailer');
+    var maillist = [
+         complaint.roll + "@students.iitmandi.ac.in",
+        'harsh100pahwa@gmail.com'
+      ];
+    console.log(maillist);
     // let htmlString = nodeMailer.renderTemplate('mail.ejs');
     nodeMailer.transporter.sendMail({
         from: 'b21100@students.iitmandi.ac.in',
-        to: 'harsh100pahwa@gmail.com',
+        to: maillist,
         subject: "New Complaint Published!",
         //TODO
         html: "<p>Complaint details <br>" + "<ul>"
